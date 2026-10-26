@@ -1,0 +1,20 @@
+import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+export const inquiries = sqliteTable("booking_inquiries", {
+  id: text("id").primaryKey(),
+  reference: text("reference").notNull().unique(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  company: text("company").notNull(),
+  packageId: text("package_id").notNull(),
+  addons: text("addons").notNull(),
+  estimate: integer("estimate"),
+  projectId: text("project_id").notNull(),
+  dateMode: text("date_mode").notNull(),
+  date: text("date").notNull(),
+  location: text("location").notNull(),
+  budget: text("budget").notNull(),
+  message: text("message").notNull(),
+  status: text("status").notNull().default("New"),
+  createdAt: text("created_at").notNull(),
+});
